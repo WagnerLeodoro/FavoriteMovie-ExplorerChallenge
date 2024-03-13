@@ -34,7 +34,10 @@ class MovieController {
     const { id } = req.params
 
     const movie = await knex('movie_notes').where({ id }).first()
-    const tags = await knex('movie_tags').where({ user_id: id }).orderBy('name')
+    const tags = await knex('movie_tags')
+      .select('name')
+      .where({ user_id: id })
+      .orderBy('name')
 
     return res.status(200).json({
       ...movie,
