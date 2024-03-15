@@ -4,7 +4,7 @@ const AppError = require('../utils/AppError')
 class MovieController {
   async create(req, res) {
     const { title, description, rating, tags } = req.body
-    const { user_id } = req.params
+    const { user_id } = req.user.id
 
     if (rating < 0 || rating > 5) {
       throw new AppError('Escolha uma nota de 1 a 5')
@@ -53,7 +53,8 @@ class MovieController {
   }
 
   async searchMovie(req, res) {
-    const { user_id, title, tags } = req.query
+    const { title, tags } = req.query
+    const user_id = req.user.id
     let movies
 
     if (tags) {
