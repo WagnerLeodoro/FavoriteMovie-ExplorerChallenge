@@ -24,9 +24,11 @@ class UserController {
   }
 
   async listUser(req, res) {
-    const { id } = req.params
+    const { id } = req.user
 
-    const user = await knex('users').where({ id })
+    const user = await knex('users')
+      .where({ id })
+      .select('name', 'email', 'avatar')
 
     return res.status(200).json(user)
   }

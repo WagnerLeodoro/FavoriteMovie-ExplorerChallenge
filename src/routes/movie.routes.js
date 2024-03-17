@@ -7,10 +7,10 @@ const movieController = new MovieController()
 
 movieRouter.use(ensureAuthenticated)
 
-movieRouter.get('/', movieController.searchMovie)
-movieRouter.get('/:id', movieController.listMovies)
-movieRouter.post('/:user_id', movieController.create)
-// movieRouter.put('/:id', movieController)
+movieRouter.get('/', movieController.index)
+movieRouter.post('/', movieController.create)
+
+movieRouter.get('/:id', movieController.show)
 movieRouter.delete('/:id', movieController.deleteMovie)
 
 module.exports = movieRouter

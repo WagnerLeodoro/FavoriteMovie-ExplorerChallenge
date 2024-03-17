@@ -12,17 +12,12 @@ const sqlConnection = require('./src/database')
 sqlConnection()
 
 const app = express()
-
 app.use(express.json())
-app.use(cookieParser())
 
+app.use(cookieParser())
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173',
-      'http://127.0.0.1:5173/',
-      'http://localhost:3333/',
-    ],
+    origin: ['http://localhost:5173', 'http://127.0.0.1:5173/'],
     credentials: true,
   }),
 )
