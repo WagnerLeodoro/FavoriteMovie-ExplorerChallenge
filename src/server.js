@@ -12,6 +12,8 @@ const sqlConnection = require("./database")
 
 sqlConnection()
 
+const apiUrl = import.meta.env.API_URL
+
 const apiUrl = process.env.API_URL
 
 const app = express()
