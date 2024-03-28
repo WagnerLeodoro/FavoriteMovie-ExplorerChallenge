@@ -12,6 +12,8 @@ const sqlConnection = require("./database")
 
 sqlConnection()
 
+const apiUrl = process.env.API_URL
+
 const app = express()
 app.use(express.json())
 app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER))
@@ -20,7 +22,7 @@ app.use(cookieParser())
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://127.0.0.1:5173/"],
+    origin: ["http://localhost:5173", "http://127.0.0.1:5173/", apiUrl],
     credentials: true,
   }),
 )
