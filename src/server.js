@@ -1,14 +1,14 @@
 require("dotenv/config")
 require("express-async-errors")
-const uploadConfig = require("./src/configs/upload")
+const uploadConfig = require("./configs/upload")
 
 const cors = require("cors")
 const express = require("express")
-const routes = require("./src/routes")
+const routes = require("./routes")
 const cookieParser = require("cookie-parser")
 
-const AppError = require("./src/utils/AppError")
-const sqlConnection = require("./src/database")
+const AppError = require("./utils/AppError")
+const sqlConnection = require("./database")
 
 sqlConnection()
 
